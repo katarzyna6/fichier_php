@@ -1,14 +1,14 @@
 <?php
 
-$file = fopen("misesajour.txt", "c");
+$file = fopen("misesajour.txt", "r");
 
-fwrite($file, "La date de dernière mise à jour du site :".PHP_EOL);
+var_dump(fgets($file));
 
-fwrite($file, "2020-04-07".PHP_EOL);
-
-
-
-
+$str = "";
+while($str !== false) {
+    $str = fgets($file);
+    var_dump($str);
+}
 
 
 fclose($file);
