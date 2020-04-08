@@ -29,7 +29,6 @@ fseek($file2, 0);
 fwrite($file2, $count);
 fclose($file2);
 
-
 /*$pages = fgets($file2);
 var_dump($page);
 $pages++;
@@ -38,3 +37,40 @@ fwrite($file2, $pages);
 fclose($file2);
 echo '<p>Nombre de vues : ' . $pages . '.</p>';*/
 
+/*ex.3 -----------------*/
+
+$personnages = [
+    [
+        "Rose",
+        12,
+        1,
+        100,
+        false
+    ],
+
+    [
+        "Golbu",
+        18,
+        2,
+        0,
+        true
+    ],
+    
+    [
+        "Arthis",
+        21,
+        1,
+        45,
+        false
+    ],
+];
+
+
+$file3 = fopen("personnages.csv", "c+");
+
+foreach($personnages as $perso) {
+    fputcsv($file3, $perso);
+}
+
+
+fclose($file3);
