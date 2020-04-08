@@ -77,6 +77,15 @@ fclose($file3);
 //Ex.4 -----------------------
 ?>
 
+<?php
+var_dump($_POST);
+
+$file4 = fopen("persos.csv", "a+");
+fputcsv($file4, $_POST);
+fclose($file4);
+
+?>
+
 <!DOCTYPE html>  
 <html lang="en">
 <head>
@@ -85,7 +94,7 @@ fclose($file3);
 </head>
 <body>
     <form>
-    <form action="formulaire.php" method="post">
+    <form action="fichier.php" method="post">
         <p>
             <label for="nom">Votre prénom: </label>
             <input type="text" id="nom" name="nom" placeholder="Votre nom">
