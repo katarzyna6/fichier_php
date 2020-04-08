@@ -93,7 +93,6 @@ fclose($file4);
     <title>Formulaire</title>
 </head>
 <body>
-    <form>
     <form action="fichier.php" method="post">
         <p>
             <label for="nom">Votre prénom: </label>
@@ -122,7 +121,6 @@ fclose($file4);
 
         <p><input type="submit" value="Ajouter un personnage"></p>
 
-    </form>
     </form>
 </body>
 </html>
