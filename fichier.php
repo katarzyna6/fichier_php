@@ -74,7 +74,7 @@ foreach($personnages as $perso) {
 
 fclose($file3);
 
-//Ex.4 -----------------------
+//Ex.4 et 5 -----------------------
 ?>
 
 <?php
@@ -124,3 +124,21 @@ fclose($file4);
     </form>
 </body>
 </html>
+
+<!-- ex.6 -->
+
+<?php
+
+$file5 = fopen("persos.csv", "r");
+
+var_dump(fgetcsv($file5));
+var_dump(fgetcsv($file5));
+var_dump(fgetcsv($file5));
+var_dump(fgetcsv($file5));
+var_dump(fgetcsv($file5));
+var_dump(fgetcsv($file5));
+
+
+fclose($file5);
+
+?>
