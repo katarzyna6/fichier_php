@@ -14,8 +14,7 @@ while($str !== false) {
 
 fclose($file);
 
-echo "<p>La date de dernière mise à jour du site :$str";
-
+echo "<p>La date de dernière mise à jour du site :$str"."<hr>";
 
 
 $file2=fopen("compteur.txt", "c+");
@@ -73,6 +72,7 @@ foreach($personnages as $perso) {
 }
 
 fclose($file3);
+echo "<hr>";
 
 //Ex.4 et 5 -----------------------
 ?>
@@ -83,7 +83,33 @@ var_dump($_POST);
 $file4 = fopen("persos.csv", "a+");
 fputcsv($file4, $_POST);
 fclose($file4);
+?>
 
+<!-- ex.6 -->
+
+<?php
+
+$file5 = fopen("persos.csv", "r");
+
+$persos = [];
+$pers_line = "";
+while($pers_line !== false) {
+    $pers_line = fgetcsv($file5);
+    if($pers_line !== false) {
+        array_push($persos, $pers_line);
+    }
+}
+
+fclose($file5);
+
+var_dump($persos);
+
+$html = "<p>Liste des personnes : </p><ul>";
+foreach($persos as $perso) {
+    $html .= "<li>".$perso[0]."</li>";
+}
+$html .= "</ul>";
+echo "<hr>";
 ?>
 
 <!DOCTYPE html>  
@@ -93,6 +119,10 @@ fclose($file4);
     <title>Formulaire</title>
 </head>
 <body>
+
+    <?= $html."<hr>" ?>
+
+
     <form action="fichier.php" method="post">
         <p>
             <label for="nom">Votre prénom: </label>
@@ -125,20 +155,3 @@ fclose($file4);
 </body>
 </html>
 
-<!-- ex.6 -->
-
-<?php
-
-$file5 = fopen("persos.csv", "r");
-
-var_dump(fgetcsv($file5));
-var_dump(fgetcsv($file5));
-var_dump(fgetcsv($file5));
-var_dump(fgetcsv($file5));
-var_dump(fgetcsv($file5));
-var_dump(fgetcsv($file5));
-
-
-fclose($file5);
-
-?>
