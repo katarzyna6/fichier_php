@@ -112,6 +112,19 @@ $html .= "</ul>";
 echo "<hr>";
 ?>
 
+<!-- Ex.7 -->
+<?php
+$file5 = fopen("persos.csv", "r");
+
+$fp = fopen('persos.json', 'w');
+fwrite($fp, json_encode($file5));
+var_dump($file5);
+fclose($fp);
+
+echo "<hr>";
+?>
+
+
 <!DOCTYPE html>  
 <html lang="en">
 <head>
