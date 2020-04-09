@@ -118,13 +118,16 @@ $json = "";
 $html = "<p>Liste des personnes : </p><ul>";
 foreach($persos as &$perso) {
     $perso = ["nom" => $perso[0], "force" => $perso[1], "level" => $perso[2], "health" => $perso[3], "etat" => $perso[4]];
-}
+} 
 
-var_dump($persos);
+//var_dump($persos);
 
 $json = fopen("personnes.json", "w");
 fwrite($json, json_encode(["personnes" => $persos]));
 fclose($json);
+
+$recup = json_decode(file_get_contents("personnes.json"));
+var_dump($recup->personnes[0]->force);
 
 echo "<hr>";
 ?>
