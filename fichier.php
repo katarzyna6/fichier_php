@@ -149,7 +149,7 @@ echo "<hr>";
             <input type="text" id="etat" name="etat" placeholder="Votre état">
         </p>
 
-        <p><input type="submit" value="Ajouter un personnage"></p>
+        <p><input type="submit" value="Ajouter un personnage"></p><hr>
 
     </form>
 </body>
